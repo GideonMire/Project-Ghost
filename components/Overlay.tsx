@@ -44,13 +44,13 @@ const GlitchTitle = () => {
           position: relative;
           color: white;
           font-weight: 700;
-          font-size: 3rem; 
+          font-size: 1.75rem; /* Mobile Size */
           letter-spacing: -0.05em;
           text-transform: uppercase;
         }
         
         @media (min-width: 768px) {
-          .glitch { font-size: 4rem; }
+          .glitch { font-size: 4rem; } /* Desktop Size */
         }
 
         /* Pseudo-elements for the effect - Hidden by default */
@@ -62,7 +62,7 @@ const GlitchTitle = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: transparent; /* Removed black background to fix artifacts */
+          background: transparent;
           opacity: 0;
           display: none; 
         }
@@ -115,7 +115,7 @@ const GlitchTitle = () => {
             PROJECT GHOST
          </h1>
       </div>
-      <div className="h-1 w-24 bg-white mt-2"></div>
+      <div className="h-1 w-16 md:w-24 bg-white mt-1 md:mt-2"></div>
     </div>
   );
 };
@@ -124,7 +124,7 @@ export const Overlay: React.FC<OverlayProps> = ({ currentStep }) => {
   const info = CAMERA_PATH[currentStep] || CAMERA_PATH[0];
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-between p-8 md:p-16 overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-between p-6 md:p-16 overflow-hidden">
       
       {/* Top Bar */}
       <header className="flex justify-between items-start shrink-0">
@@ -147,11 +147,11 @@ export const Overlay: React.FC<OverlayProps> = ({ currentStep }) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="space-y-4"
+              className="space-y-2 md:space-y-4"
             >
-              {/* Title */}
+              {/* Title - Responsive Text Sizes */}
               <h2 
-                className="text-6xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 uppercase leading-[0.9]"
+                className="text-4xl sm:text-6xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 uppercase leading-[0.9]"
                 style={{ 
                   fontFamily: '"Arial Narrow", Arial, sans-serif',
                   fontWeight: 700,
@@ -162,10 +162,10 @@ export const Overlay: React.FC<OverlayProps> = ({ currentStep }) => {
               </h2>
               
               {/* Subtitle */}
-              <div className="flex items-center gap-4">
-                 <div className="h-px w-12 bg-green-500"></div>
+              <div className="flex items-center gap-2 md:gap-4">
+                 <div className="h-px w-8 md:w-12 bg-green-500"></div>
                  <p 
-                   className="text-lg md:text-xl text-green-400 uppercase"
+                   className="text-sm md:text-xl text-green-400 uppercase"
                    style={{ 
                      fontFamily: '"Arial Narrow", Arial, sans-serif',
                      fontWeight: 500,
@@ -180,8 +180,7 @@ export const Overlay: React.FC<OverlayProps> = ({ currentStep }) => {
         </div>
 
         {/* BOTTOM OF CONTENT AREA: Description */}
-        {/* mb-8 pushes it slightly up from the footer, ensuring it's "near" the bottom but not "at" it */}
-        <div className="mt-auto mb-12 md:mb-20"> 
+        <div className="mt-auto mb-16 md:mb-20"> 
           <AnimatePresence mode="wait">
              <motion.div
                 key={`desc-${currentStep}`}
@@ -192,7 +191,7 @@ export const Overlay: React.FC<OverlayProps> = ({ currentStep }) => {
              >
                 {info.description && (
                    <p 
-                     className="text-sm md:text-base text-white/70 max-w-lg border-l border-white/20 pl-4 py-1"
+                     className="text-xs md:text-base text-white/70 max-w-[85%] md:max-w-lg border-l border-white/20 pl-3 md:pl-4 py-1"
                      style={{ 
                        fontFamily: '"Trebuchet MS", Verdana, sans-serif',
                        fontWeight: 300,
@@ -210,17 +209,17 @@ export const Overlay: React.FC<OverlayProps> = ({ currentStep }) => {
 
       {/* Footer / Progress */}
       <footer className="flex justify-between items-end shrink-0">
-        <div className="flex gap-2">
+        <div className="flex gap-1 md:gap-2">
             {CAMERA_PATH.map((_, idx) => (
                 <div 
                     key={idx}
-                    className={`h-1 transition-all duration-300 ${idx === currentStep ? 'w-12 bg-white' : 'w-4 bg-white/20'}`}
+                    className={`h-1 transition-all duration-300 ${idx === currentStep ? 'w-8 md:w-12 bg-white' : 'w-2 md:w-4 bg-white/20'}`}
                 />
             ))}
         </div>
         <div className="text-right">
-           <p className="text-xs text-white/40 mb-1">RENDER ENGINE: WEBGL // R3F</p>
-           <p className="text-xs text-white/40">MODEL: KOENIGSEGG_REF_01</p>
+           <p className="text-[10px] md:text-xs text-white/40 mb-1">RENDER ENGINE: WEBGL // R3F</p>
+           <p className="text-[10px] md:text-xs text-white/40">MODEL: KOENIGSEGG_REF_01</p>
         </div>
       </footer>
     </div>

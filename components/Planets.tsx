@@ -1,6 +1,13 @@
 import React, { useMemo } from 'react';
 import { Float } from '@react-three/drei';
 import { DoubleSide, Color } from 'three';
+import { ThreeElements } from '@react-three/fiber';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements extends ThreeElements {}
+  }
+}
 
 // --- PRD JSON SPECIFICATION ---
 const PLANETS_DATA = [

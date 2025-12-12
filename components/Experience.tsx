@@ -1,11 +1,17 @@
 import React, { Suspense, useRef, useMemo } from 'react';
 import { ScrollControls, Environment, Sparkles, Stars, OrbitControls, Html } from '@react-three/drei';
-import { useThree, useFrame } from '@react-three/fiber';
+import { useThree, useFrame, ThreeElements } from '@react-three/fiber';
 import { CarModel } from './CarModel';
 import { CameraRig } from './CameraRig';
 import { Planets } from './Planets';
 import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
 import { Group, Vector3, MathUtils } from 'three';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements extends ThreeElements {}
+  }
+}
 
 interface ExperienceProps {
   setStep: (idx: number) => void;

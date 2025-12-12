@@ -1,6 +1,13 @@
 import React, { Component, useLayoutEffect, ReactNode, useRef, forwardRef } from 'react';
 import { useGLTF, useHelper } from '@react-three/drei';
 import { MeshPhysicalMaterial, Color, Box3, Vector3, DoubleSide, BoxHelper, Group } from 'three';
+import { ThreeElements } from '@react-three/fiber';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements extends ThreeElements {}
+  }
+}
 
 // The specific model URL provided by the user
 const MODEL_URL = 'https://raw.githubusercontent.com/GideonMire/agera/db3bdfdf3ebf643560c4a8e3cc300fb7fe01eb59/public/uploads_files_2792345_Koenigsegg.obj.glb';

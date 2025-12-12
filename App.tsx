@@ -23,13 +23,13 @@ const App = () => {
       {/* AI Chat Widget */}
       <AIChat />
 
-      {/* Control Buttons */}
-      <div className="fixed top-6 right-6 z-50 flex gap-2">
+      {/* Control Buttons - Responsive positioning and size */}
+      <div className="fixed top-4 right-4 md:top-6 md:right-6 z-50 flex gap-2">
         {/* Free Look Toggle (Only active in Cinematic Mode) */}
         {!freeRoam && (
           <button 
               onClick={() => setFreeLook(!freeLook)}
-              className={`px-4 py-2 text-xs font-bold tracking-widest border rounded hover:bg-white hover:text-black transition-all uppercase ${freeLook ? 'bg-green-500 border-green-500 text-black' : 'bg-transparent border-white/20 text-white/50'}`}
+              className={`px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-bold tracking-widest border rounded hover:bg-white hover:text-black transition-all uppercase ${freeLook ? 'bg-green-500 border-green-500 text-black' : 'bg-transparent border-white/20 text-white/50'}`}
           >
               {freeLook ? 'FREE LOOK ON' : 'FREE LOOK'}
           </button>
@@ -38,7 +38,7 @@ const App = () => {
         {/* Debug/Free Roam Toggle */}
         <button 
             onClick={() => setFreeRoam(!freeRoam)}
-            className={`px-4 py-2 text-xs font-bold tracking-widest border rounded hover:bg-white hover:text-black transition-all uppercase ${freeRoam ? 'bg-red-500 border-red-500 text-white' : 'bg-transparent border-white/20 text-white/50'}`}
+            className={`px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-bold tracking-widest border rounded hover:bg-white hover:text-black transition-all uppercase ${freeRoam ? 'bg-red-500 border-red-500 text-white' : 'bg-transparent border-white/20 text-white/50'}`}
         >
             {freeRoam ? 'EXIT DEBUG' : 'DEBUG'}
         </button>
