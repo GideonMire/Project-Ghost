@@ -52,8 +52,24 @@ export const CAMERA_PATH: CameraPoint[] = [
     text: "VELOCITY",
     subtext: "400+ KM/H TOP SPEED"
   },
+  // --- NEW ORBITAL KEYFRAMES FOR SMOOTH SPIN ---
   {
-    // 7. HERO FRONT - Dead center front
+    // 7. MID SIDE - Wide orbit to avoid clipping
+    position: new Vector3(-5.50, 1.00, 0.00),
+    target: new Vector3(-1.09, 0.5, 0.0),
+    text: "G-FORCE",
+    subtext: "2.0G LATERAL ACCELERATION"
+  },
+  {
+    // 8. FRONT QUARTER - Transitioning to front
+    position: new Vector3(-4.00, 0.80, 3.00),
+    target: new Vector3(-1.09, 0.5, 0.8),
+    text: "AGILITY",
+    subtext: "ELECTRONIC DIFFERENTIAL"
+  },
+  // ---------------------------------------------
+  {
+    // 9. HERO FRONT - Dead center front
     position: new Vector3(-1.09, 0.5, 3.8),
     target: new Vector3(-1.09, 0.6, 1.0),
     text: "LEGACY",

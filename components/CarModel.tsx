@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, ReactNode, useRef, forwardRef, Component } from 'react';
+import React, { useLayoutEffect, ReactNode, useRef, forwardRef } from 'react';
 import { useGLTF, useHelper } from '@react-three/drei';
 import { MeshPhysicalMaterial, Color, Box3, Vector3, DoubleSide, BoxHelper, Group } from 'three';
 
@@ -30,7 +30,7 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   state: ErrorBoundaryState = { hasError: false };
 
   static getDerivedStateFromError(): ErrorBoundaryState {

@@ -278,7 +278,7 @@ export const Experience: React.FC<ExperienceProps> = ({ setStep, freeRoam }) => 
           <SceneContent />
         </>
       ) : (
-        <ScrollControls pages={8} damping={0.5}>
+        <ScrollControls pages={10} damping={0.5}>
           <CameraRig setStep={setStep} carRef={carGroupRef} />
           <SceneContent />
         </ScrollControls>
