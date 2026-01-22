@@ -1,22 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220">
   <defs>
+    <!-- Base noise -->
     <filter id="glitch">
-      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1">
-        <animate attributeName="baseFrequency"
-          dur="6s"
-          values="0.01;0.02;0.01"
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.015"
+        numOctaves="2"
+        seed="2"
+        result="noise">
+        <animate
+          attributeName="baseFrequency"
+          dur="1.5s"
+          values="0.01;0.05;0.015"
           repeatCount="indefinite"/>
       </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" scale="0">
-        <animate attributeName="scale"
-          dur="6s"
-          values="0;0;0;12;0"
-          keyTimes="0;0.9;0.92;0.94;1"
+
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="noise"
+        scale="0"
+        xChannelSelector="R"
+        yChannelSelector="G">
+        <animate
+          attributeName="scale"
+          dur="1.5s"
+          values="0;0;25;0"
+          keyTimes="0;0.7;0.8;1"
           repeatCount="indefinite"/>
       </feDisplacementMap>
     </filter>
   </defs>
 
+  <!-- RED channel -->
+  <text
+    x="50%"
+    y="55%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-size="96"
+    letter-spacing="12"
+    fill="#ff004c"
+    font-family="Arial Black, sans-serif"
+    opacity="0.8">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      dur="0.15s"
+      values="0 0; -6 -4; 6 4; 0 0"
+      repeatCount="indefinite"/>
+    PROJECT GHOST
+  </text>
+
+  <!-- CYAN channel -->
+  <text
+    x="50%"
+    y="55%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-size="96"
+    letter-spacing="12"
+    fill="#00f6ff"
+    font-family="Arial Black, sans-serif"
+    opacity="0.8">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      dur="0.18s"
+      values="0 0; 5 -6; -5 6; 0 0"
+      repeatCount="indefinite"/>
+    PROJECT GHOST
+  </text>
+
+  <!-- MAIN WHITE TEXT -->
   <text
     x="50%"
     y="55%"
@@ -27,6 +82,13 @@
     fill="white"
     font-family="Arial Black, sans-serif"
     filter="url(#glitch)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      dur="0.12s"
+      values="0 0; 0 -8; 0 8; 0 0"
+      repeatCount="indefinite"/>
     PROJECT GHOST
   </text>
+
 </svg>
